@@ -1,6 +1,7 @@
 import React from 'react'
 import { client } from '../../lib/client'
 import { Category } from '../../lib/types';
+import './globals.css'
 
 
 
