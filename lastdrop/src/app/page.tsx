@@ -1,8 +1,16 @@
+import { useState } from 'react'
 import React from 'react'
 import { client } from '../../lib/client'
 import { Category } from '../../lib/types';
 import './globals.css'
 
+// Import dynamic from next/dynamic
+import dynamic from 'next/dynamic';
+
+// Use dynamic to import the Landing component
+const Landing = dynamic(() => import('./component/Landing'), { ssr: false });
+
+// Rest of your code remains unchanged
 
 
 async function getData(){
@@ -27,9 +35,21 @@ const page = async() => {
   const data:Category[] = await getData()
   console.log(data)
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    <h1>Lastdrop frontend</h1> 
-   </main>
+ <div>
+        <Landing data={data}/>
+      {/* {data.map((category) => (
+        <div key={category.name}>
+          <h2>{category.name}</h2>
+          <ul>
+            {category.foods.map((food) => (
+              <li key={food.name}>
+                {food.name} - ${food.price}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))} */}
+    </div> 
   )
 }
 

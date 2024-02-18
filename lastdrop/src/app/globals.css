@@ -71,6 +71,20 @@ main {
   margin-top: 4rem;
   /* width: 50%; */
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+  /* width: 50%; */
+}
+
+.logo {
+  width: 135px;
+  height: 102px;
+  flex-shrink: 0;
+}
 h1 {
  
   line-height: 1.1;
