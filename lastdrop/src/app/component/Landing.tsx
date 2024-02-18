@@ -14,7 +14,7 @@ interface LandingProps {
   category2: Category2[]
 }
 
-
+export const revalidate = 30
 const Landing: React.FC<LandingProps> = ({ categories,category2 }) => {
 
   const [openDropdown, setOpenDropdown] = useState(-1);
