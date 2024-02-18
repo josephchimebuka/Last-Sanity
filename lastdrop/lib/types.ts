@@ -6,3 +6,13 @@ export interface Category {
     }[];
   }
   
+
+
+  export interface Category2 {
+    name: string;
+    drink: {
+      name: string;
+      price: number;
+    }[];
+  }
+  

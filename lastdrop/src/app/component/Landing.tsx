@@ -5,15 +5,17 @@ import logo from '../../../public/assets/Last Drop Logo.svg'
 import instagram from '../../../public/assets/instagram.svg'
 import twitter from '../../../public/assets/twitter.svg'
 import Dropdown from './Dropdown'
-import { Category } from '../../../lib/types'
+import { Category, Category2 } from '../../../lib/types'
+import Dropdown2 from './Dropdown2'
 
 
 interface LandingProps {
   categories: Category[];
+  category2: Category2[]
 }
 
 
-const Landing: React.FC<LandingProps> = ({ categories }) => {
+const Landing: React.FC<LandingProps> = ({ categories,category2 }) => {
 
   const [openDropdown, setOpenDropdown] = useState(-1);
   const [selectedOption, setselectedOption] = useState<string>('Option1')
@@ -41,14 +43,14 @@ const Landing: React.FC<LandingProps> = ({ categories }) => {
     }
 
     if(selectedOption==='Option2'){
-      return categories.map((category, index) => (
-        <Dropdown
+      return category2.map((category, index) => (
+        <Dropdown2
           key={category.name}
           title={category.name}
-          items={category.foods.map((food) => ({
-            id: `${category.name}-${food.name}`,
-            name: food.name,
-            price: food.price,
+          items={category.drink.map((drink) => ({
+            id: `${category.name}-${drink.name}`,
+            name: drink.name,
+            price: drink.price,
           }))}
           openDropdown={openDropdown}
           setOpenDropdown={setOpenDropdown}
