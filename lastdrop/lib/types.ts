@@ -1,8 +1,8 @@
-export interface Category{
-
+export interface Category {
     name: string;
-    food:{
-        foodname: string,
-        foodprice: number
-    }
-}
+    foods: {
+      name: string;
+      price: number;
+    }[];
+  }
+  

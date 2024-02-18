@@ -34,9 +34,13 @@ const page = async() => {
 
   const data:Category[] = await getData()
   console.log(data)
+  data.forEach((category) => {
+    console.log(`Category: ${category.name}`);
+    console.log('Foods:', category.foods);
+  });
   return (
  <div>
-        <Landing data={data}/>
+        <Landing categories={data}/>
       {/* {data.map((category) => (
         <div key={category.name}>
           <h2>{category.name}</h2>

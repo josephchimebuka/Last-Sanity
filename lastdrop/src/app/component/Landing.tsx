@@ -8,10 +8,12 @@ import Dropdown from './Dropdown'
 import { Category } from '../../../lib/types'
 
 
-interface DataProps{
-  data: Category
+interface LandingProps {
+  categories: Category[];
 }
-const Landing = ({data}:DataProps) => {
+
+
+const Landing: React.FC<LandingProps> = ({ categories }) => {
 
   const [openDropdown, setOpenDropdown] = useState(-1);
   const [selectedOption, setselectedOption] = useState<string>('Option1')
@@ -22,27 +24,37 @@ const Landing = ({data}:DataProps) => {
 
   const renderOptions =()=>{
     if(selectedOption === 'Option1'){
-      return (
+      return categories.map((category, index) => (
         <Dropdown
-          title="Dropdown1"
-          items={data} // Adjust this based on your data structure
+          key={category.name}
+          title={category.name}
+          items={category.foods.map((food) => ({
+            id: `${category.name}-${food.name}`,
+            name: food.name,
+            price: food.price,
+          }))}
           openDropdown={openDropdown}
           setOpenDropdown={setOpenDropdown}
-          index={0}
+          index={index}
         />
-      );
+      ));
     }
 
     if(selectedOption==='Option2'){
-      return (
+      return categories.map((category, index) => (
         <Dropdown
-          title="Dropdown2"
-          items={data} // Adjust this based on your data structure
+          key={category.name}
+          title={category.name}
+          items={category.foods.map((food) => ({
+            id: `${category.name}-${food.name}`,
+            name: food.name,
+            price: food.price,
+          }))}
           openDropdown={openDropdown}
           setOpenDropdown={setOpenDropdown}
-          index={1}
+          index={index}
         />
-      );
+      ));
     }
   }
   return (

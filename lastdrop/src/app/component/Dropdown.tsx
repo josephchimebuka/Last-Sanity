@@ -3,19 +3,16 @@ import React, { useState, useEffect } from 'react';
 import { Category } from '../../../lib/types';
 
 interface DropdownProps {
-  title: string;
-  items: Category[];
-//    Array<{
-//     id: string;
-//     name: string;
-//     price?: number;
-//     bracket?: string;
-//     notification?: string;
-//   }>;
-  openDropdown: number;
-  setOpenDropdown: React.Dispatch<React.SetStateAction<number>>;
-  index: number;
-}
+    title: string;
+    items: Array<{
+      id: string;
+      name: string;
+      price?: number;
+    }>;
+    openDropdown: number;
+    setOpenDropdown: React.Dispatch<React.SetStateAction<number>>;
+    index: number;
+  }
 
 const Dropdown: React.FC<DropdownProps> = ({ title, items, openDropdown, setOpenDropdown, index }) => {
   const [isRotated, setIsRotated] = useState(false);
@@ -71,15 +68,17 @@ const Dropdown: React.FC<DropdownProps> = ({ title, items, openDropdown, setOpen
       </div>
       {openDropdown === index && (
         <ul className={`dropdown-list ulcontainer ultags`}>
-          {items.map((item) => (
-            <li className="flex justify-between listtags md:py-2 py-2 px-2 md:px-2 uppercase" key={item.id}>
-              <div className="md:flex items-center flex-col md:flex-row flex-1">
-                <p className="text-[15px] md:text-[16px] gap-2">{item.name}</p>
-                {item.bracket && <p className="text-[10px] md:text-[12px] md:ml-2 mt-2 md:mt-0 text-[#FE9346] italic">{item.bracket}</p>}
-              </div>
-              {item.price && <p className="text-[15px] lg:text-[16px] ml-3">N{item.price}</p>}
-            </li>
-          ))}
+       {items.map((item) => (
+  <li className="flex justify-between listtags md:py-2 py-2 px-2 md:px-2 uppercase" key={item.id}>
+    <div className="md:flex items-center flex-col md:flex-row flex-1">
+      <p className="text-[15px] text-white md:text-[16px] gap-2">{item.name}</p>
+      {/* Uncomment the next line if 'bracket' property exists in your items */}
+      {/* {item.bracket && <p className="text-[10px] md:text-[12px] md:ml-2 mt-2 md:mt-0 text-[#FE9346] italic">{item.bracket}</p>} */}
+    </div>
+    {item.price && <p className="text-[15px] lg:text-[16px] ml-3">N{item.price}</p>}
+  </li>
+))}
+
         </ul>
       )}
     </div>
