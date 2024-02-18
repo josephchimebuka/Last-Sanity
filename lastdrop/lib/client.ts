@@ -1,5 +1,4 @@
 import { createClient } from "@sanity/client";
-import { ImageUrlBuilder } from "sanity";
 
 export const client = createClient({
     projectId: 'yi9r5xl6',
