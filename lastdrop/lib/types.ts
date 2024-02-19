@@ -4,7 +4,7 @@ export interface Category {
     foods: {
       name: string;
       inBracket: string;
-      price: number;
+      price: number | string;
     }[];
   }
   
@@ -16,7 +16,7 @@ export interface Category {
     drink: {
       name: string;
       inBracket: string;
-      price: number;
+      price: number | string;
     }[];
   }
   

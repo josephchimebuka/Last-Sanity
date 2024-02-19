@@ -8,7 +8,7 @@ interface DropdownProps {
     items: Array<{
       id: string;
       name: string;
-      price?: number;
+      price?: number | string;
       bracket?: string
     }>;
     openDropdown: number;
