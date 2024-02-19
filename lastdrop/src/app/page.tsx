@@ -16,8 +16,10 @@ export const revalidate = 30
 async function getData(){
   const query =`*[_type == "category"] | order(_createdAt asc) {
     name,
-    foods[]-> {
+      notification,
+    drink[]-> {
       name,
+      inBracket,
       price
     }
   }
@@ -38,8 +40,10 @@ async function getDrinksData(){
   const drinksQuery =`
   *[_type == "category2"] | order(_createdAt asc) {
     name,
+      notification,
     drink[]-> {
       name,
+      inBracket,
       price
     }
   }
