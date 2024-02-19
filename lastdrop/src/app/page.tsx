@@ -16,8 +16,8 @@ export const revalidate = 30
 async function getData(){
   const query =`*[_type == "category"] | order(_createdAt asc) {
     name,
-      notification,
-    drink[]-> {
+    notification,
+    foods[]-> {
       name,
       inBracket,
       price

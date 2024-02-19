@@ -4,17 +4,19 @@ import { Category } from '../../../lib/types';
 
 interface DropdownProps {
     title: string;
+    notification?: string;
     items: Array<{
       id: string;
       name: string;
       price?: number;
+      bracket?: string;
     }>;
     openDropdown: number;
     setOpenDropdown: React.Dispatch<React.SetStateAction<number>>;
     index: number;
   }
 
-const Dropdown: React.FC<DropdownProps> = ({ title, items, openDropdown, setOpenDropdown, index }) => {
+const Dropdown: React.FC<DropdownProps> = ({ title, items, openDropdown, setOpenDropdown, index,notification }) => {
   const [isRotated, setIsRotated] = useState(false);
   const [changeColor, setChangeColor] = useState(false);
 
@@ -73,7 +75,7 @@ const Dropdown: React.FC<DropdownProps> = ({ title, items, openDropdown, setOpen
     <div className="md:flex items-center flex-col md:flex-row flex-1">
       <p className="text-[15px] text-white md:text-[16px] gap-2">{item.name}</p>
       {/* Uncomment the next line if 'bracket' property exists in your items */}
-      {/* {item.bracket && <p className="text-[10px] md:text-[12px] md:ml-2 mt-2 md:mt-0 text-[#FE9346] italic">{item.bracket}</p>} */}
+      {item.bracket && <p className="text-[10px] md:text-[12px] md:ml-2 mt-2 md:mt-0 text-[#FE9346] italic">{item.bracket}</p>}
     </div>
     {item.price && <p className="text-[15px] lg:text-[16px] ml-3">N{item.price}</p>}
   </li>

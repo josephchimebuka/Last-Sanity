@@ -30,10 +30,12 @@ const Landing: React.FC<LandingProps> = ({ categories,category2 }) => {
         <Dropdown
           key={category.name}
           title={category.name}
+          notification={category.notification}
           items={category.foods.map((food) => ({
             id: `${category.name}-${food.name}`,
             name: food.name,
             price: food.price,
+            bracket: food.inBracket
           }))}
           openDropdown={openDropdown}
           setOpenDropdown={setOpenDropdown}
@@ -47,10 +49,12 @@ const Landing: React.FC<LandingProps> = ({ categories,category2 }) => {
         <Dropdown2
           key={category.name}
           title={category.name}
+          notification={category.notification}
           items={category.drink.map((drink) => ({
             id: `${category.name}-${drink.name}`,
             name: drink.name,
             price: drink.price,
+            bracket: drink.inBracket
           }))}
           openDropdown={openDropdown}
           setOpenDropdown={setOpenDropdown}
