@@ -7,7 +7,7 @@ interface DropdownProps {
     notification?: string;
     items: Array<{
       id: string;
-      name: string;
+      name?: string;
       price?: number | string;
       bracket?: string
     }>;

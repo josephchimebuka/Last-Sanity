@@ -1,7 +1,7 @@
 // schemas/category.js
 export default {
     name: 'category2',
-    title: 'Category2',
+    title: 'Drink Category',
     type: 'document',
     fields: [
       {

@@ -40,12 +40,12 @@ async function getDrinksData(){
   const drinksQuery =`
   *[_type == "category2"] | order(_createdAt asc) {
     name,
-      notification,
-    drink[]-> {
-      name,
-      inBracket,
-      price
-    }
+    notification,
+  drink[]-> {
+    name,
+    inBracket,
+    price
+  }
   }
   `
 
