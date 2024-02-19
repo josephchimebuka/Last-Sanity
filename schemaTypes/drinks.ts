@@ -10,6 +10,11 @@ export default {
         type: 'string',
       },
       {
+        name: 'inBracket',
+        title: 'In Bracket',
+        type: 'string',
+      },
+      {
         name: 'price',
         title: 'Price',
         type: 'number',

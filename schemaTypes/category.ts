@@ -10,6 +10,11 @@ export default {
         type: 'string',
       },
       {
+        name: 'notification',
+        title: 'Notification Name',
+        type: 'string',
+      },
+      {
         name: 'foods',
         title: 'Foods',
         type: 'array',
