@@ -12,6 +12,8 @@ const Landing = dynamic(() => import('./component/Landing'), { ssr: false });
 
 // Rest of your code remains unchanged
 
+
+//This is to check the revalidate time for each code to refresh
 export const revalidate = 10
 async function getData(){
   const query =`*[_type == "category"] | order(_createdAt asc) {
