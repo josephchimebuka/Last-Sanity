@@ -7,4 +7,4 @@ export default {
  
 
 
-  //The reference object for check the type of the code that should be changed
+  //The reference object for check the type of the document
