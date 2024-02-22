@@ -1,4 +1,4 @@
-// schemas/category.js
+
 export default {
     name: 'category2',
     title: 'Drink Category',

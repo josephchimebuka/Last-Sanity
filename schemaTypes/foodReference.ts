@@ -1,4 +1,4 @@
-// schemas/foodReference.js
+
 export default {
     name: 'foodReference',
     title: 'Food Reference',

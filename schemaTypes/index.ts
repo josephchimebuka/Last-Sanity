@@ -1,4 +1,4 @@
-// schemas/schema.js
+
 import food from './food';
 import foodReference from './foodReference';
 import category from './category';
