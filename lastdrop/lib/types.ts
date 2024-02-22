@@ -8,7 +8,7 @@ export interface Category {
     }[];
   }
   
-
+// interface page for both categories
 
   export interface Category2 {
     name: string;
