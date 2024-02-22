@@ -72,18 +72,7 @@ const page = async() => {
   return (
  <div>
         <Landing category2={drinkData} categories={data}/>
-      {/* {data.map((category) => (
-        <div key={category.name}>
-          <h2>{category.name}</h2>
-          <ul>
-            {category.foods.map((food) => (
-              <li key={food.name}>
-                {food.name} - ${food.price}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))} */}
+    
     </div> 
   )
 }
