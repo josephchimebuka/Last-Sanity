@@ -16,7 +16,7 @@ const Landing = dynamic(() => import('./component/Landing'), { ssr: false });
 //This is to check the revalidate time for each code to refresh
 export const revalidate = 10
 async function getData(){
-  const query =`*[_type == "category"] | order(_createdAt asc) {
+  const query =`*[_type == "category"] | order(_createdAt desc) {
     name,
     notification,
     foods[]-> {
@@ -40,14 +40,14 @@ return data;
 
 async function getDrinksData(){
   const drinksQuery =`
-  *[_type == "category2"] | order(_createdAt asc) {
+  *[_type == "category2"] | order(_createdAt desc) {
     name,
-    notification,
-  drink[]-> {
-    name,
-    inBracket,
-    price
-  }
+      notification,
+    drink[]-> {
+      name,
+      inBracket,
+      price
+    }
   }
   `
 
