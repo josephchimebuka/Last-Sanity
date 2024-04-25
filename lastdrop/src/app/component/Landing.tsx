@@ -31,7 +31,7 @@ const Landing: React.FC<LandingProps> = ({ categories,category2 }) => {
           key={category.name}
           title={category.name}
           notification={category.notification}
-          items={category.foods.map((food) => ({
+          items={category.foods && category.foods.map((food) => ({
             id: `${category.name}-${food.name}`,
             name: food.name,
             price: food.price,
