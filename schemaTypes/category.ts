@@ -1,7 +1,7 @@
 
 export default {
     name: 'category',
-    title: 'Food Category',
+    title: 'Food Category (Edit here)',
     type: 'document',
     fields: [
       {
