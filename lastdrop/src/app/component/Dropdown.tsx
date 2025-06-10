@@ -1,88 +1,76 @@
-// Dropdown.tsx
-import React, { useState, useEffect } from 'react';
-import { Category } from '../../../lib/types';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@radix-ui/react-accordion";
+import React from "react";
+import Image from 'next/image'
+
 
 interface DropdownProps {
-    title: string;
+  title: string;
+  notification?: string;
+  items: {
+    id: number;
+    name?: string;
+    price?: number | string;
+    bracket?: string;
     notification?: string;
-    items: Array<{
-      id: string;
-      name: string;
-      price?:number | string;
-      bracket?: string;
-    }>;
-    openDropdown: number;
-    setOpenDropdown: React.Dispatch<React.SetStateAction<number>>;
-    index: number;
-  }
+  }[];
+  image?: string; // Add image property
+  index: number;
+  openDropdown: number; // Index of the currently open dropdown
+  setOpenDropdown: React.Dispatch<React.SetStateAction<number>>;
+}
 
-const Dropdown: React.FC<DropdownProps> = ({ title, items, openDropdown, setOpenDropdown, index,notification }) => {
-  const [isRotated, setIsRotated] = useState(false);
-  const [changeColor, setChangeColor] = useState(false);
-
-  useEffect(() => {
-    // Rotate the arrow when the dropdown is opened
-    setIsRotated(openDropdown === index);
-  }, [openDropdown, index]);
-
-  const handleIconClick = () => {
-    setIsRotated(!isRotated);
-    setChangeColor(true);
-  };
-
-  const toggleDropdown = () => {
-    setOpenDropdown((prevOpenDropdown) => (prevOpenDropdown === index ? -1 : index));
-    setChangeColor(true);
-  };
-
+const Dropdown: React.FC<DropdownProps> = ({ title, items, image }) => {
   return (
-    <div className="md:w-[600px] lg:w-[800px] xl:w-[1000px] w-[305px] mt-5 cursor-pointer">
-      <div
-        className={`dropdown-header flex justify-between text-lg uppercase font-bold ${
-          changeColor && openDropdown === index ? 'colorChange' : 'dropContainer'
-        }`}
-        onClick={toggleDropdown}
-      >
-        {title}
-        <svg
-          className={isRotated ? 'rotated' : 'notRotated'}
-          onClick={handleIconClick}
-          fill={isRotated && openDropdown === index ? '#FE9346' : '#fff'}
-          height="20px"
-          width="20px"
-          version="1.1"
-          id="Layer_1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 330 330"
-          xmlSpace="preserve"
-          stroke="#ffffff"
-        >
-          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-          <g id="SVGRepo_iconCarrier">
-            <path
-              id="XMLID_225_"
-              d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"
-            ></path>
-          </g>
-        </svg>
-      </div>
-      {openDropdown === index && (
-        <ul className={`dropdown-list ulcontainer ultags`}>
-       {items.map((item) => (
-  <li className="flex justify-between listtags md:py-2 py-2 px-2 md:px-2 uppercase" key={item.id}>
-    <div className="md:flex items-center flex-col md:flex-row flex-1">
-      <p className="text-[15px] text-white md:text-[16px] gap-2">{item.name}</p>
-      {/* Uncomment the next line if 'bracket' property exists in your items */}
-      {item.bracket && <p className="text-[10px] md:text-[12px] md:ml-2 mt-2 md:mt-0 text-[#FE9346] italic">{item.bracket}</p>}
-    </div>
-    {item.price && <p className="text-[15px] lg:text-[16px] ml-3">N{item.price}</p>}
-  </li>
-))}
-
-        </ul>
-      )}
+    <div className="md:w-[600px] lg:w-[800px] xl:w-[1000px] w-[305px] cursor-pointer border-b border-b-white/30">
+      <Accordion type="single" collapsible className="outline-none">
+        <AccordionItem value={title}>
+          <AccordionTrigger className="flex items-center text-2xl h-[90px] font-bold dropdown-header uppercase [&[data-state=open]]:text-orange-400 outline-none border-none">
+            {title}
+          </AccordionTrigger>
+          <AccordionContent>
+            <ul className={`ulcontainer ultags`}>
+              {items.map((item) => (
+                <>
+                  <li
+                    className="flex justify-between py-2 px-2 menufont border-l border-l-[#343434]"
+                    key={item.id}
+                  >
+                    <div className="md:flex items-center flex-col md:flex-row flex-1 pl-4">
+                      <p className="text-[15px] md:text-[16px] menufont tracking-wide gap-2">
+                        {item.name}
+                      </p>
+                      {item.bracket && (
+                        <p className="text-[10px] md:text-[12px] md:ml-2 mt-2 md:mt-0 text-[#FE9346] menufont tracking-wider">
+                          {item.bracket}
+                        </p>
+                      )}
+                    </div>
+                    {item.price && (
+                      <p className="text-[15px] lg:text-[16px] text-[#FE9346] font-bold dropdown-header ml-3">
+                        N{item.price}
+                      </p>
+                    )}
+                  </li>
+                  {item.notification && (
+                    <p className="text-[8px] lg:text-[12px] italics md:py-2 py-2 px-2 md:px-2 text-[#FE9346]">
+                      {item.notification}
+                    </p>
+                  )}
+                </>
+              ))}
+            </ul>
+            {image && (
+              <Image
+                className="w-full"
+                src={image}
+                width={1000}
+                height={100}
+                alt={`${title} Image`}
+              />
+            )}
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   );
 };
