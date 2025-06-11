@@ -5,19 +5,19 @@ import Image from "next/image";
 import { ChevronDownIcon } from "lucide-react";
 
 interface DropdownProps {
-  title: string;
-  notification?: string;
+  title: string
+  notification?: string
   items: {
-    id: number;
-    name?: string;
-    price?: number | string;
-    bracket?: string;
-    notification?: string;
-  }[];
-  image?: string; // Add image property
-  index: number;
-  openDropdown: number; // Index of the currently open dropdown
-  setOpenDropdown: React.Dispatch<React.SetStateAction<number>>;
+    id: number
+    name?: string
+    price?: number | string
+    bracket?: string
+    notification?: string
+  }[]
+  image?: string // Add image property
+  index: number
+  openDropdown: number // Index of the currently open dropdown
+  setOpenDropdown: React.Dispatch<React.SetStateAction<number>>
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -51,7 +51,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         <div className="px-4 py-2">
           <ul className={`ulcontainer ultags`}>
             {items.map((item) => (
-              <React.Fragment key={item.id}>
+              <div key={'item' + index}>
                 <li className="flex justify-between py-2 px-2 menufont border-l border-l-[#343434]">
                   <div className="md:flex items-center flex-col md:flex-row flex-1 pl-4">
                     <p className="text-[15px] md:text-[16px] menufont tracking-wide gap-2">
@@ -74,7 +74,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                     {item.notification}
                   </p>
                 )}
-              </React.Fragment>
+              </div>
             ))}
           </ul>
           {image && (
