@@ -77,7 +77,7 @@ const Dropdown: React.FC<DropdownProps> = ({ title, items, openDropdown, setOpen
       {/* Uncomment the next line if 'bracket' property exists in your items */}
       {item.bracket && <p className="text-[10px] md:text-[12px] md:ml-2 mt-2 md:mt-0 text-[#FE9346] italic">{item.bracket}</p>}
     </div>
-    {item.price && <p className="text-[15px] lg:text-[16px] ml-3">N{item.price}</p>}
+    {item.price && <p className="text-[15px] lg:text-[16px] ml-3">N0{item.price}</p>}
   </li>
 ))}
 
