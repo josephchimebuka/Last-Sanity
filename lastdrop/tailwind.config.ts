@@ -13,6 +13,13 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        border: "#dee2e6", // Define the `border` color here
+        ring: "#646cff",   // Define the `ring` color if needed
+        background: "#242424", // Define the `background` color
+        foreground: "#ffffff", // Define the `foreground` color
+        "muted-foreground": "#6b7280",
+      },
     },
   }, screens:{
     xs: '480px',

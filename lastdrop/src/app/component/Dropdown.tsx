@@ -1,6 +1,7 @@
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@radix-ui/react-accordion";
 import React from "react";
 import Image from 'next/image'
+import { ChevronDownIcon } from "lucide-react";
 
 
 interface DropdownProps {
@@ -22,10 +23,11 @@ interface DropdownProps {
 const Dropdown: React.FC<DropdownProps> = ({ title, items, image }) => {
   return (
     <div className="md:w-[600px] lg:w-[800px] xl:w-[1000px] w-[305px] cursor-pointer border-b border-b-white/30">
-      <Accordion type="single" collapsible className="outline-none">
+      <Accordion type="single" collapsible >
         <AccordionItem value={title}>
-          <AccordionTrigger className="flex items-center text-2xl h-[90px] font-bold dropdown-header uppercase [&[data-state=open]]:text-orange-400 outline-none border-none">
+          <AccordionTrigger className="flex w-full items-center text-2xl h-[90px] font-bold dropdown-header uppercase [&[data-state=open]]:text-orange-400 outline-none border-none">
             {title}
+            <ChevronDownIcon className="text-muted-foreground pointer-events-none w-40 block h-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
           </AccordionTrigger>
           <AccordionContent>
             <ul className={`ulcontainer ultags`}>
@@ -61,7 +63,7 @@ const Dropdown: React.FC<DropdownProps> = ({ title, items, image }) => {
             </ul>
             {image && (
               <Image
-                className="w-full"
+                className="w-full h-[300px] object-cover"
                 src={image}
                 width={1000}
                 height={100}
