@@ -37,7 +37,6 @@ const Page = () => {
 
         const data = await client.fetch(query);
         setCategories(data);
-        console.log(data)
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
@@ -63,7 +62,6 @@ const Page = () => {
 
         const drinkData = await client.fetch(drinksQuery);
         setCategory2(drinkData);
-        console.log(drinkData)
       } catch (error) {
         console.error("Error fetching drinks:", error);
       }
@@ -89,9 +87,17 @@ const Page = () => {
 
   return (
     <div>
-      <Landing category2={category2} categories={categories} />
+      <MemoizedLanding category2={category2} categories={categories} />
     </div>
   );
 };
+
+// Memoize the Landing component to prevent unnecessary re-renders
+const MemoizedLanding = React.memo(Landing, (prevProps, nextProps) => {
+  return (
+    JSON.stringify(prevProps.categories) === JSON.stringify(nextProps.categories) &&
+    JSON.stringify(prevProps.category2) === JSON.stringify(nextProps.category2)
+  );
+});
 
 export default Page;
