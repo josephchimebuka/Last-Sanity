@@ -1,103 +1,66 @@
 "use client";
-import { useState, useEffect } from "react";
 import React from "react";
-import { client } from "../../lib/client";
-import { Category, Category2 } from "../../lib/types";
-import "./globals.css";
-
-// Import dynamic from next/dynamic
-import dynamic from "next/dynamic";
-
-// Use dynamic to import the Landing component
-const Landing = dynamic(() => import("./component/Landing"), { ssr: false });
-
-const Page = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [category2, setCategory2] = useState<Category2[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const query = `*[_type == "category"] | order(_createdAt asc) {
-          name,
-          notification,
-          foods[]-> {
-            name,
-            inBracket,
-            price
-          },
-          image {
-            asset-> {
-              _id,
-              url
-            }
-          }
-        }`;
-
-        const data = await client.fetch(query);
-        setCategories(data);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
-    };
-
-    const fetchDrinks = async () => {
-      try {
-        const drinksQuery = `*[_type == "category2"] | order(_createdAt asc) {
-          name,
-          notification,
-          drink[]-> {
-            name,
-            inBracket,
-            price
-          },
-          image {
-            asset-> {
-              _id,
-              url
-            }
-          }
-        }`;
-
-        const drinkData = await client.fetch(drinksQuery);
-        setCategory2(drinkData);
-      } catch (error) {
-        console.error("Error fetching drinks:", error);
-      }
-    };
-
-    const fetchData = async () => {
-      setLoading(true);
-      await Promise.all([fetchCategories(), fetchDrinks()]);
-      setLoading(false);
-    };
-
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="container">
-        <img className="logoimage" src="/Last Drop Logo.svg" alt="Loading Logo" />
-        <div className="loading-circle"></div>
-      </div>
-    );
-  }
-
+import Link from "next/link";
+import Image from "next/image";
+import logo from  "../../public/Lastdroplogo.svg"
+import outdoorLogo from "../../public/OutdoorLogo.svg"
+import hideoutLogo from "../../public/HighoutLogo.svg";
+const LandingPageHero = () => {
   return (
-    <div>
-      <MemoizedLanding category2={category2} categories={categories} />
+    <div className="flex landing flex-col items-center justify-between min-h-screen bg-black text-white px-4 py-8">
+      {/* Top Section: Logo */}
+      <div className="w-full flex justify-between items-center mt-5">
+        <div className="flex justify-center w-full">
+          <Image
+            src={logo} 
+            alt="Logo"
+            width={200}
+            height={200}
+            className="object-contain"
+          />
+        </div>
+        {/* Top Right Link */}
+        <Link
+          href="/menu"
+          className="absolute top-8 right-8 text-lg font-bold text-white hover:text-[#FE9346] transition-colors"
+        >
+          eMenu
+        </Link>
+      </div>
+
+      {/* Middle Section: Boxes */}
+      <div className="flex flex-col md:flex-row gap-8 mt-8">
+        {/* Box 1 */}
+        <div className="group cursor-pointer flex items-center justify-center w-[400px] h-[400px] rounded-[20px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
+          <Image
+            src={outdoorLogo}
+            alt="Image 1"
+            width={4000}
+            height={300}
+            className="object-cover"
+          />
+        </div>
+
+        {/* Box 2 */}
+        <div className="group cursor-pointer flex items-center justify-center w-[400px] h-[400px] rounded-[20px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
+          <Image
+            src={hideoutLogo}
+            alt="Image 2"
+            width={4000}
+            height={400}
+            className="object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Footer Section */}
+      <div className="mt-8">
+        <p className="text-center text-sm text-white/70">
+          © 2023 LastDrop. All rights reserved.
+        </p>
+      </div>
     </div>
   );
 };
 
-// Memoize the Landing component to prevent unnecessary re-renders
-const MemoizedLanding = React.memo(Landing, (prevProps, nextProps) => {
-  return (
-    JSON.stringify(prevProps.categories) === JSON.stringify(nextProps.categories) &&
-    JSON.stringify(prevProps.category2) === JSON.stringify(nextProps.category2)
-  );
-});
-
-export default Page;
+export default LandingPageHero;
