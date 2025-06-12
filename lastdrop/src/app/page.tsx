@@ -2,63 +2,64 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from  "../../public/Lastdroplogo.svg"
-import outdoorLogo from "../../public/OutdoorLogo.svg"
+import logo from "../../public/Lastdroplogo.svg";
+import outdoorLogo from "../../public/OutdoorLogo.svg";
 import hideoutLogo from "../../public/HighoutLogo.svg";
+import Footer from "./component/Footer";
+
 const LandingPageHero = () => {
   return (
-    <div className="flex landing flex-col items-center justify-between min-h-screen bg-black text-white px-4 py-8">
-      {/* Top Section: Logo */}
-      <div className="w-full flex justify-between items-center mt-5">
-        <div className="flex justify-center w-full">
-          <Image
-            src={logo} 
-            alt="Logo"
-            width={200}
-            height={200}
-            className="object-contain"
-          />
-        </div>
-        {/* Top Right Link */}
-        <Link
-          href="/menu"
-          className="absolute top-8 right-8 text-lg font-bold text-white hover:text-[#FE9346] transition-colors"
-        >
-          eMenu
-        </Link>
-      </div>
+    <div className="landing flex flex-col items-center justify-between">
+      <div className="flex flex-col items-center gap-8 justify-between text-white px-4 py-8">
+        {/* Top Section: Logo */}
+        <div className="w-full flex justify-between items-center mt-5">
+          <div className="flex justify-center w-full">
+            <Image
+              src={logo}
+              alt="Logo"
+              width={150} // Default width
+              height={150} // Default height
+              className="object-contain md:w-[200px] md:h-[200px]" // Adjust size for larger screens
+            />
+          </div>
 
-      {/* Middle Section: Boxes */}
-      <div className="flex flex-col md:flex-row gap-8 mt-8">
-        {/* Box 1 */}
-        <div className="group cursor-pointer flex items-center justify-center w-[400px] h-[400px] rounded-[20px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
-          <Image
-            src={outdoorLogo}
-            alt="Image 1"
-            width={4000}
-            height={300}
-            className="object-cover"
-          />
+          {/* Top Right Link */}
+          <Link
+            href="/menu"
+            className="uppercase absolute top-8 right-8 text-lg font-bold text-white hover:text-[#FE9346] transition-colors"
+          >
+            E menu
+          </Link>
         </div>
 
-        {/* Box 2 */}
-        <div className="group cursor-pointer flex items-center justify-center w-[400px] h-[400px] rounded-[20px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
-          <Image
-            src={hideoutLogo}
-            alt="Image 2"
-            width={4000}
-            height={400}
-            className="object-cover"
-          />
+        {/* Middle Section: Boxes */}
+        <div className="flex flex-col md:flex-row gap-8 mt-2">
+          {/* Box 1 */}
+          <div className="group cursor-pointer p-6 flex items-center justify-center w-[300px] h-[200px] md:w-[400px] md:h-[300px] rounded-[20px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
+            <Image
+              src={outdoorLogo}
+              alt="Image 1"
+              width={3000}
+              height={200}
+              className="object-contain"
+            />
+          </div>
+
+          {/* Box 2 */}
+          <div className="group cursor-pointer p-6 flex items-center justify-center w-[300px] h-[200px] md:w-[400px] md:h-[300px] rounded-[20px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
+            <Image
+              src={hideoutLogo}
+              alt="Image 2"
+              width={3000}
+              height={200}
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
 
       {/* Footer Section */}
-      <div className="mt-8">
-        <p className="text-center text-sm text-white/70">
-          © 2023 LastDrop. All rights reserved.
-        </p>
-      </div>
+      <Footer />
     </div>
   );
 };

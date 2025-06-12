@@ -76,7 +76,7 @@ main {
 
 .landing {
   min-width: 320px;
-  min-height: 95vh;
+  min-height: 100vh;
   background-image: url("/landingImage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -84,6 +84,7 @@ main {
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
+  font-family: 'clashdisplay';
 }
 .center {
   display: block;

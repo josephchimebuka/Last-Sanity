@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import React from 'react'
-import './globals.css'
+// import './globals.css'
 
 
 import dynamic from 'next/dynamic';
