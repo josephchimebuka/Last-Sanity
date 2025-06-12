@@ -103,7 +103,7 @@ main {
 }
 
 .logo {
-  width: 135px;
+  width: 185px;
   height: 102px;
   flex-shrink: 0;
 }
@@ -212,8 +212,8 @@ p {
 
 .ulcontainer {
   /* border: 1px solid #dee2e6; */
-  padding: 1.5rem 1rem;
-  margin-left: 1rem;
+  /* padding: 1.5rem 1rem;
+  margin-left: 1rem; */
   transition: transform 2s ease;
   border-top: none;
   border-top-right-radius: 0;

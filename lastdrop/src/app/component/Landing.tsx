@@ -2,7 +2,7 @@
 import React, {useState} from 'react'
 import Image from 'next/image'
 import logo from '/public/Logo.svg'
-import hideoutLogo from '/public/hideout-logo.svg'
+import hideoutLogo from "../../../public/HighoutLogo.svg";
 import Dropdown from './Dropdown'
 import {Category, Category2} from '../../../lib/types'
 import Dropdown2 from './Dropdown2'
@@ -66,7 +66,7 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
   return (
     <main className="">
       <div className="items-center flex-col  flex mb-10 content">
-        <div className="flex flex-col md:flex-row items-center justify-between lg:gap-16 xl:min-w-[1200px] md:mx-auto mt-[40px] md:mt-[50px]">
+        <div className="flex flex-col md:flex-row items-center gap-3 justify-between lg:gap-16 xl:min-w-[1200px] md:mx-auto mt-[40px] md:mt-[50px]">
           <nav className="md:mb-8 ">
             <Image className="logo" src={logo} alt="site logo" />
           </nav>
@@ -100,7 +100,7 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
           </div>
 
           <nav className="md:mb-8 ">
-            <Image className="logo" src={hideoutLogo} alt="hideout logo" />
+            <Image width={3000} height={1000} className="logo" src={hideoutLogo} alt="hideout logo" />
           </nav>
         </div>
         <div className="rounded-xl bg-black/30 border border-[#343434] p-10 backdrop-blur mt-10">

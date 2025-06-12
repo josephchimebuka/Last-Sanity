@@ -14,7 +14,7 @@ interface DropdownProps {
     bracket?: string
     notification?: string
   }[]
-  image?: string // Add image property
+  image?: string 
   index: number
   openDropdown: number // Index of the currently open dropdown
   setOpenDropdown: React.Dispatch<React.SetStateAction<number>>
@@ -31,7 +31,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const isOpen = openDropdown === index;
 
   const handleToggle = () => {
-    setOpenDropdown(isOpen ? -1 : index); // Close if already open, otherwise open
+    setOpenDropdown(isOpen ? -1 : index); 
   };
 
   return (
@@ -50,8 +50,8 @@ const Dropdown: React.FC<DropdownProps> = ({
       {isOpen && (
         <div className="px-4 py-2">
           <ul className={`ulcontainer ultags`}>
-            {items.map((item) => (
-              <div key={'item' + index}>
+            {items.map((item, index) => (
+               <div key={item.id}>
                 <li className="flex justify-between py-2 px-2 menufont border-l border-l-[#343434]">
                   <div className="md:flex items-center flex-col md:flex-row flex-1 pl-4">
                     <p className="text-[15px] md:text-[16px] menufont tracking-wide gap-2">
@@ -81,9 +81,10 @@ const Dropdown: React.FC<DropdownProps> = ({
             <Image
               className="w-full h-[300px] object-cover"
               src={image}
-              width={1000}
+              width={3000}
               height={100}
               alt={`${title} Image`}
+              priority 
             />
           )}
         </div>

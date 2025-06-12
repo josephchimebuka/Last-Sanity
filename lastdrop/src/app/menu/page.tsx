@@ -12,16 +12,21 @@ const Landing = dynamic(() => import('../component/Landing'), { ssr: false });
 
 export const revalidate = 10
 async function getData(){
-  const query =`*[_type == "category"] | order(_createdAt desc) {
+  const query = `*[_type == "category"] | order(_createdAt asc) {
     name,
     notification,
     foods[]-> {
       name,
       inBracket,
       price
+    },
+    image {
+      asset-> {
+        _id,
+        url
+      }
     }
-  }
-`
+  }`;
 
 
 
@@ -35,17 +40,21 @@ return data;
 
 
 async function getDrinksData(){
-  const drinksQuery =`
-  *[_type == "category2"] | order(_createdAt desc) {
+  const drinksQuery = `*[_type == "category2"] | order(_createdAt asc) {
     name,
-      notification,
+    notification,
     drink[]-> {
       name,
       inBracket,
       price
+    },
+    image {
+      asset-> {
+        _id,
+        url
+      }
     }
-  }
-  `
+  }`;
 
   const drinkData = await client.fetch(drinksQuery)
 

@@ -35,7 +35,7 @@ const LandingPageHero = () => {
         {/* Middle Section: Boxes */}
         <div className="flex flex-col md:flex-row gap-8 mt-2">
           {/* Box 1 */}
-          <div className="group cursor-pointer p-6 flex items-center justify-center w-[300px] h-[200px] md:w-[400px] md:h-[300px] rounded-[20px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
+          <div className="group cursor-pointer bg-black/30 p-6 flex items-center justify-center w-[300px] h-[200px] md:w-[400px] md:h-[300px] rounded-[20px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
             <Image
               src={outdoorLogo}
               alt="Image 1"
@@ -46,7 +46,7 @@ const LandingPageHero = () => {
           </div>
 
           {/* Box 2 */}
-          <div className="group cursor-pointer p-6 flex items-center justify-center w-[300px] h-[200px] md:w-[400px] md:h-[300px] rounded-[20px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
+          <div className="group cursor-pointer bg-black/30 p-6 flex items-center justify-center w-[300px] h-[200px] md:w-[400px] md:h-[300px] rounded-[20px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
             <Image
               src={hideoutLogo}
               alt="Image 2"
