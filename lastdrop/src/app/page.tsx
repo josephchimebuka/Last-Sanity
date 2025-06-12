@@ -1,80 +1,66 @@
-import { useState } from 'react'
-import React from 'react'
-import { client } from '../../lib/client'
-import { Category, Category2 } from '../../lib/types';
-import './globals.css'
-
-// Import dynamic from next/dynamic
-import dynamic from 'next/dynamic';
-
-// Use dynamic to import the Landing component
-const Landing = dynamic(() => import('./component/Landing'), { ssr: false });
-
-// Rest of your code remains unchanged
-
-
-//This is to check the revalidate time for each code to refresh
-export const revalidate = 10
-async function getData(){
-  const query =`*[_type == "category"] | order(_createdAt desc) {
-    name,
-    notification,
-    foods[]-> {
-      name,
-      inBracket,
-      price
-    }
-  }
-`
-
-
-
-
-const data = await client.fetch(query)
-
-
-return data;
-}
-
-
-
-async function getDrinksData(){
-  const drinksQuery =`
-  *[_type == "category2"] | order(_createdAt desc) {
-    name,
-      notification,
-    drink[]-> {
-      name,
-      inBracket,
-      price
-    }
-  }
-  `
-
-  const drinkData = await client.fetch(drinksQuery)
-
-  return drinkData;
-}
-
-
-
-const page = async() => {
-
-
-  const data:Category[] = await getData()
-  const drinkData:Category2[] = await getDrinksData()
-  console.log(data)
-  console.log(drinkData)
-  data.forEach((category) => {
-    console.log(`Category: ${category.name}`);
-    console.log('Foods:', category.foods);
-  });
+"use client";
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import logo from  "../../public/Lastdroplogo.svg"
+import outdoorLogo from "../../public/OutdoorLogo.svg"
+import hideoutLogo from "../../public/HighoutLogo.svg";
+const LandingPageHero = () => {
   return (
- <div>
-        <Landing category2={drinkData} categories={data}/>
-    
-    </div> 
-  )
-}
+    <div className="flex landing flex-col items-center justify-between min-h-screen bg-black text-white px-4 py-8">
+      {/* Top Section: Logo */}
+      <div className="w-full flex justify-between items-center mt-5">
+        <div className="flex justify-center w-full">
+          <Image
+            src={logo} 
+            alt="Logo"
+            width={200}
+            height={200}
+            className="object-contain"
+          />
+        </div>
+        {/* Top Right Link */}
+        <Link
+          href="/menu"
+          className="absolute top-8 right-8 text-lg font-bold text-white hover:text-[#FE9346] transition-colors"
+        >
+          eMenu
+        </Link>
+      </div>
 
-export default page
+      {/* Middle Section: Boxes */}
+      <div className="flex flex-col md:flex-row gap-8 mt-8">
+        {/* Box 1 */}
+        <div className="group cursor-pointer flex items-center justify-center w-[400px] h-[400px] rounded-[20px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
+          <Image
+            src={outdoorLogo}
+            alt="Image 1"
+            width={4000}
+            height={300}
+            className="object-cover"
+          />
+        </div>
+
+        {/* Box 2 */}
+        <div className="group cursor-pointer flex items-center justify-center w-[400px] h-[400px] rounded-[20px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
+          <Image
+            src={hideoutLogo}
+            alt="Image 2"
+            width={4000}
+            height={400}
+            className="object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Footer Section */}
+      <div className="mt-8">
+        <p className="text-center text-sm text-white/70">
+          © 2023 LastDrop. All rights reserved.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default LandingPageHero;

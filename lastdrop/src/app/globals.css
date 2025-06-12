@@ -64,6 +64,19 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+
+.landing {
+  min-width: 320px;
+  min-height: 95vh;
+  background-image: url("/landingImage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
 .center {
   display: block;
   margin-left: auto;
