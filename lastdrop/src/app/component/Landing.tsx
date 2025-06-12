@@ -37,7 +37,7 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
               bracket: food.inBracket,
             }))
           }
-          image={category.image?.asset?.url} // Pass the image URL
+          image={category.image?.asset?.url} 
           openDropdown={openDropdown}
           setOpenDropdown={setOpenDropdown}
           index={index}
@@ -51,7 +51,7 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
           title={category.name}
           notification={category.notification}
           items={(category.drink || []).map((drink) => ({
-            id: index * 100 + (category.drink || []).indexOf(drink), // Generate a numeric ID
+            id: index * 100 + (category.drink || []).indexOf(drink), 
             name: drink.name,
             price: drink.price,
             bracket: drink.inBracket,
