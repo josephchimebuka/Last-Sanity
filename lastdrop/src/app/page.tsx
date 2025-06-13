@@ -1,11 +1,11 @@
-"use client";
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import logo from "../../public/Lastdroplogo.svg";
-import outdoorLogo from "../../public/OutdoorLogo.svg";
-import hideoutLogo from "../../public/HighoutLogo.svg";
-import Footer from "./component/Footer";
+'use client'
+import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import logo from '../../public/Lastdroplogo.svg'
+import outdoorLogo from '../../public/OutdoorLogo.svg'
+import hideoutLogo from '../../public/HighoutLogo.svg'
+import Footer from './component/Footer'
 
 const LandingPageHero = () => {
   return (
@@ -17,12 +17,12 @@ const LandingPageHero = () => {
             <Image
               src={logo}
               alt="Logo"
-              width={100} 
-              height={100} 
+              width={100}
+              height={100}
               className="object-contain md:w-[150px] md:h-[150px]" // Adjust size for larger screens
             />
           </div>
-{/* 
+          {/* 
           <Link
             href="/menu"
             className="uppercase absolute top-4 right-4 text-sm font-bold text-white hover:text-[#FE9346] transition-colors"
@@ -32,34 +32,36 @@ const LandingPageHero = () => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-4">
-          <div className="group cursor-pointer bg-black/30 p-4 flex items-center justify-center w-[200px] h-[150px] md:w-[300px] md:h-[200px] rounded-[10px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
-            <Image
-              src={outdoorLogo}
-              alt="Image 1"
-              width={2000}
-              height={150}
-              className="object-contain"
-            />
-          </div>
+          <Link href="/Outdoormenu">
+            <div className="group cursor-pointer bg-black/30 p-4 flex items-center justify-center w-[200px] h-[150px] md:w-[300px] md:h-[200px] rounded-[10px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
+              <Image
+                src={outdoorLogo}
+                alt="Outdoor Menu"
+                width={200}
+                height={150}
+                className="object-contain"
+              />
+            </div>
+          </Link>
 
-          {/* Box 2 */}
-          <div className="group cursor-pointer bg-black/30 p-4 flex items-center justify-center w-[200px] h-[150px] md:w-[300px] md:h-[200px] rounded-[10px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
-            <Image
-              src={hideoutLogo}
-              alt="Image 2"
-              width={2000}
-              height={150}
-              className="object-cover"
-            />
-          </div>
+          <Link href="/HideoutMenu">
+            <div className="group cursor-pointer bg-black/30 p-4 flex items-center justify-center w-[200px] h-[150px] md:w-[300px] md:h-[200px] rounded-[10px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
+              <Image
+                src={hideoutLogo}
+                alt="Hideout Menu"
+                width={200}
+                height={150}
+                className="object-contain"
+              />
+            </div>
+          </Link>
         </div>
 
-
-      {/* Footer Section */}
-      <Footer />
+        {/* Footer Section */}
+        <Footer />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LandingPageHero;
+export default LandingPageHero

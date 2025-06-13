@@ -4,9 +4,8 @@ import category from './outdoorCategory'
 import drinks from './drinks'
 import drinkReference from './drinkReference'
 import category2 from './outdoorCategory2'
-import hideout from './hideout'
-import outdoor from './outdoor'
-
+import hideout from './hideoutCategory2'
+import hideout2 from './hideOutCategory'
 export const schemaTypes = [
     food,
     foodReference,
@@ -14,6 +13,6 @@ export const schemaTypes = [
     drinks,
     drinkReference,
     category2,
-    outdoor,
+    hideout2,
     hideout,
   ];

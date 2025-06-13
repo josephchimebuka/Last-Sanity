@@ -15,8 +15,13 @@ export default {
         type: 'string',
       },
       {
-        name: 'price',
-        title: 'Price',
+        name: 'priceOutdoor',
+        title: 'Price (Outdoor)',
+        type: 'number',
+      },
+      {
+        name: 'priceHideout',
+        title: 'Price (Hideout)',
         type: 'number',
       },
     ],

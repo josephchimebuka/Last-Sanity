@@ -5,7 +5,6 @@ import logo from '/public/Logo.svg'
 import hideoutLogo from "../../../public/HighoutLogo.svg";
 import Dropdown from './Dropdown'
 import {Category, Category2} from '../../../lib/types'
-import Dropdown2 from './Dropdown2'
 import Footer from './Footer'
 
 interface LandingProps {
@@ -33,7 +32,7 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
             category.foods.map((food, foodIndex) => ({
               id: index * 100 + foodIndex, // Generate a numeric ID
               name: food.name,
-              price: food.price,
+              price: food.priceOutdoor,
               bracket: food.inBracket,
             }))
           }
@@ -53,7 +52,7 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
           items={(category.drink || []).map((drink) => ({
             id: index * 100 + (category.drink || []).indexOf(drink), 
             name: drink.name,
-            price: drink.price,
+            price: drink.priceOutdoor,
             bracket: drink.inBracket,
           }))}
           openDropdown={openDropdown}
