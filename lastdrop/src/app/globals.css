@@ -76,12 +76,11 @@ main {
 
 .landing {
   min-width: 320px;
-  min-height: 100vh;
+  height: 100vh; /* Full viewport height */
   background-image: url("/landingImage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   font-family: 'clashdisplay';
@@ -267,7 +266,6 @@ p {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;

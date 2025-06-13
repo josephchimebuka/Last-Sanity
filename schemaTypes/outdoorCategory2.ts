@@ -1,6 +1,6 @@
 export default {
   name: 'category2',
-  title: 'Drink Category (Edit here)',
+  title: 'Drink Category (Outdoor)',
   type: 'document',
   fields: [
     {
@@ -24,7 +24,7 @@ export default {
       title: 'Category Image',
       type: 'image',
       options: {
-        hotspot: true, // Enables image cropping and hotspot selection
+        hotspot: true, 
       },
     },
   ],
