@@ -99,7 +99,7 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
           </div>
 
           <nav className="md:mb-8 ">
-            <Image width={3000} height={1000} className="logo" src={hideoutLogo} alt="hideout logo" />
+            <Image width={9000} height={1000} className="logo" src={hideoutLogo} alt="hideout logo" />
           </nav>
         </div>
         <div className="rounded-xl bg-black/30 border border-[#343434] p-10 backdrop-blur mt-10">
