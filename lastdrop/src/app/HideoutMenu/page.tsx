@@ -15,6 +15,7 @@ async function getHideoutFoodData() {
     name,
     notification,
     drink[]-> {
+     _id,
       name,
       inBracket,
       priceHideout
@@ -37,6 +38,7 @@ async function getHideoutDrinksData() {
     name,
     notification,
     foods[]-> {
+     _id,
       name,
       inBracket,
       priceHideout

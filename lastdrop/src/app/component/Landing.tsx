@@ -25,44 +25,48 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
     if (selectedOption === 'Option1') {
       return categories.map((category, index) => (
         <Dropdown
-          key={category._id}
+          key={`${category._id}-${index}`} 
           title={category.name}
           notification={category.notification}
           items={
-            category.foods &&
-            category.foods.map((food, foodIndex) => ({
-              id: index * 100 + foodIndex, // Generate a numeric ID
+            (category.foods || []).map((food, foodIndex) => ({
+              id: index * 100 + foodIndex,
               name: food.name,
               price: food.priceOutdoor,
               bracket: food.inBracket,
             }))
           }
-          image={category.image?.asset?.url} 
+          image={category.image?.asset?.url}
           openDropdown={openDropdown}
           setOpenDropdown={setOpenDropdown}
           index={index}
         />
-      ))
+      ));
     }
+  
     if (selectedOption === 'Option2') {
       return category2.map((category, index) => (
         <Dropdown
-          key={category._id}
+          key={`${category._id}-${index}`} // Ensure unique key
           title={category.name}
           notification={category.notification}
-          items={(category.drink || []).map((drink) => ({
-            id: index * 100 + (category.drink || []).indexOf(drink), 
-            name: drink.name,
-            price: drink.priceOutdoor,
-            bracket: drink.inBracket,
-          }))}
+          items={
+            (category.drink || []).map((drink, drinkIndex) => ({
+              id: index * 100 + drinkIndex, // Generate a numeric ID
+              name: drink.name,
+              price: drink.priceOutdoor,
+              bracket: drink.inBracket,
+            }))
+          }
           openDropdown={openDropdown}
           setOpenDropdown={setOpenDropdown}
           index={index}
         />
-      ))
+      ));
     }
-  }
+  
+    return null; // Return null if no option matches
+  };
   return (
     <main className="">
       <div className="items-center flex-col  flex mb-10 content">

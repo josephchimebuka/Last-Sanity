@@ -3,6 +3,7 @@ export interface Category {
   name: string;
   notification?: string;
   foods: {
+    _id: string; // Unique identifier for each food item
     name: string;
     inBracket: string;
     priceOutdoor: number; 
@@ -21,6 +22,7 @@ export interface Category2 {
   name: string;
   notification?: string;
   drink: {
+    _id: string; // Unique identifier for each drink item
     name: string;
     inBracket: string;
     priceOutdoor: number;
@@ -33,12 +35,12 @@ export interface Category2 {
   };
 }
 
-
 export interface Category3 {
   _id: string;
   name: string;
   notification?: string;
   foods: {
+    _id: string; // Unique identifier for each food item
     name: string;
     inBracket: string;
     priceHideout: number; 
@@ -57,6 +59,7 @@ export interface Category4 {
   name: string;
   notification?: string;
   drink: {
+    _id: string; // Unique identifier for each drink item
     name: string;
     inBracket: string;
     priceHideout: number;
