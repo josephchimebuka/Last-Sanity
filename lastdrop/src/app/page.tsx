@@ -33,7 +33,7 @@ const LandingPageHero = () => {
 
         <div className="flex flex-col md:flex-row gap-4">
           <Link href="/Outdoormenu">
-            <div className="group cursor-pointer bg-black/30 p-4 flex items-center justify-center w-[200px] h-[150px] md:w-[300px] md:h-[200px] rounded-[10px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
+            <div className="group cursor-pointer bg-black/30 p-4 flex items-center justify-center w-[210px] h-[180px] md:w-[300px] md:h-[200px] rounded-[10px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
               <Image
                 src={outdoorLogo}
                 alt="Outdoor Menu"
@@ -45,7 +45,7 @@ const LandingPageHero = () => {
           </Link>
 
           <Link href="/HideoutMenu">
-            <div className="group cursor-pointer bg-black/30 md:p-4 flex items-center justify-center w-[200px] h-[150px] md:w-[300px] md:h-[200px] rounded-[10px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
+            <div className="group cursor-pointer bg-black/30 md:p-4 flex items-center justify-center w-[210px] h-[180px] md:w-[300px] md:h-[200px] rounded-[10px] border border-white/30 hover:border-[#FE9346] transition-all duration-300">
               <Image
                 src={hideoutLogo}
                 alt="Hideout Menu"

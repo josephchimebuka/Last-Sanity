@@ -1,4 +1,4 @@
-import { FaFacebookSquare, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebookSquare, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -7,15 +7,20 @@ const Footer = () => {
         <button className="flex items-center justify-center w-16 h-16 rounded-full border border-white/40 bg-black/50">
           <FaFacebookSquare />
         </button>
-        <button className="flex items-center justify-center w-16 h-16 rounded-full border border-white/40 bg-black/50">
+        <a
+          href="https://www.instagram.com/lastdrop_ng?igsh=MWRxZDYyNnJ0MHA5aA=="
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center w-16 h-16 rounded-full border border-white/40 bg-black/50"
+        >
           <FaInstagram />
-        </button>
+        </a>
         <button className="flex items-center justify-center w-16 h-16 rounded-full border border-white/40 bg-black/50">
           <FaTwitter />
         </button>
       </div>
       <footer className="text-center py-6 footerElement w-full">
-      &copy;{new Date().getFullYear()} lastdrop
+        &copy;{new Date().getFullYear()} lastdrop
       </footer>
     </div>
   );

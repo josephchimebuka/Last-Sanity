@@ -6,6 +6,7 @@ import outdoorLogo from '../../../public/OutdoorLogo.svg'
 import Dropdown from './Dropdown'
 import {Category, Category2} from '../../../lib/types'
 import Footer from './Footer'
+import Link from 'next/link'
 
 interface LandingProps {
   categories: Category[]
@@ -66,9 +67,11 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
     <main className="">
       <div className="items-center flex-col  flex mb-10 content">
         <div className="flex flex-col md:flex-row items-center gap-3 justify-between lg:gap-16 xl:min-w-[1200px] md:mx-auto mt-[40px] md:mt-[50px]">
-          <nav className="md:mb-8 ">
+        <Link href="/">
+        <nav className="md:mb-8 ">
             <Image className="logo" src={logo} alt="site logo" />
           </nav>
+        </Link>
 
           <div className="flex flex-col">
             <ul className="flex justify-evenly  mt-2 items-center w-[290px] px-1 py-1 md:w-[350px] optionsBackgroundStyles">
