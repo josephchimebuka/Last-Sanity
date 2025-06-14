@@ -68,7 +68,7 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
     return null; // Return null if no option matches
   };
   return (
-    <main className="">
+    <main className="Outdoor">
       <div className="items-center flex-col  flex mb-10 content">
         <div className="flex flex-col md:flex-row items-center gap-3 justify-between lg:gap-16 xl:min-w-[1200px] md:mx-auto mt-[40px] md:mt-[50px]">
         <Link href="/">
