@@ -74,10 +74,9 @@ const Dropdown2: React.FC<DropdownProps> = ({ title, items, openDropdown, setOpe
   <li className="flex justify-between listtags md:py-2 py-2 px-2 md:px-2 uppercase" key={item.id}>
     <div className="md:flex items-center flex-col md:flex-row flex-1">
       <p className="text-[15px] text-white md:text-[16px] gap-2">{item.name}</p>
-      {/* Uncomment the next line if 'bracket' property exists in your items */}
       {item.bracket && <p className="text-[10px] md:text-[12px] md:ml-2 mt-2 md:mt-0 text-[#FE9346] italic">{item.bracket}</p>}
     </div>
-    {item.price && <p className="text-[15px] lg:text-[16px] ml-3">N{item.price}</p>}
+    {item.price && <p className="text-[15px] lg:text-[16px] ml-3 text-[#FE9346]">N{item.price}</p>}
   </li>
 ))}
          {notification && (
