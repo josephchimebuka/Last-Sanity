@@ -1,21 +1,20 @@
+import Link from 'next/link';
 import { FaFacebookSquare, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
     <div className="bg-transparent">
       <div className="flex items-center justify-center gap-8">
-        <button className="flex items-center justify-center w-16 h-16 rounded-full border border-white/40 bg-black/50">
+        <button className="flex items-center justify-center w-16 h-16 rounded-full border border-white/40 bg-black/50 text-white">
           <FaFacebookSquare />
         </button>
-        <a
+        <Link
           href="https://www.instagram.com/lastdrop_ng?igsh=MWRxZDYyNnJ0MHA5aA=="
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-16 h-16 rounded-full border border-white/40 bg-black/50"
+          className="flex items-center justify-center w-16 h-16 rounded-full border border-white/40 bg-black/50 text-white"
         >
           <FaInstagram />
-        </a>
-        <button className="flex items-center justify-center w-16 h-16 rounded-full border border-white/40 bg-black/50">
+        </Link>
+        <button className="flex items-center justify-center w-16 h-16 rounded-full border border-white/40 bg-black/50 text-white">
           <FaTwitter />
         </button>
       </div>
