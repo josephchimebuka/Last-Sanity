@@ -62,8 +62,8 @@ const HideoutPage = async () => {
   const drinkData: Category3[] = await getHideoutDrinksData();
 
   // Debugging logs
-  console.log('Hideout Food Data:', foodData);
-  console.log('Hideout Drinks Data:', drinkData);
+//   console.log('Hideout Food Data:', foodData);
+//   console.log('Hideout Drinks Data:', drinkData);
 
   // Render the Landing component with fetched data
   return (

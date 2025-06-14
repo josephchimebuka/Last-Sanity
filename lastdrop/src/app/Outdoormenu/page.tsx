@@ -60,11 +60,11 @@ const OutdoorPage = async () => {
   const drinkData: Category2[] = await getOutdoorDrinksData();
 
   // Debugging logs
-  console.log('Outdoor Food Data:', foodData);
-  console.log('Outdoor Drinks Data:', drinkData);
+  // console.log('Outdoor Food Data:', foodData);
+  // console.log('Outdoor Drinks Data:', drinkData);
 
   // Render the Landing component with fetched data
-  return (
+  return (  
     <div>
       <Landing category2={drinkData} categories={foodData} />
     </div>
