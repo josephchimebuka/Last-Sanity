@@ -32,7 +32,7 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
             category.foods.map((food, foodIndex) => ({
               id: index * 100 + foodIndex, // Generate a numeric ID
               name: food.name,
-              price: food.priceOutdoor,
+              price: food.priceHideout,
               bracket: food.inBracket,
             }))
           }
@@ -52,7 +52,7 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
           items={(category.drink || []).map((drink) => ({
             id: index * 100 + (category.drink || []).indexOf(drink), 
             name: drink.name,
-            price: drink.priceOutdoor,
+            price: drink.priceHideout,
             bracket: drink.inBracket,
           }))}
           openDropdown={openDropdown}

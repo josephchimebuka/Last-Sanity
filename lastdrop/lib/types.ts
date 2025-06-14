@@ -41,7 +41,7 @@ export interface Category3 {
   foods: {
     name: string;
     inBracket: string;
-    priceOutdoor: number; 
+    priceHideout: number; 
   }[];
   image?: {
     asset: {
@@ -59,7 +59,7 @@ export interface Category4 {
   drink: {
     name: string;
     inBracket: string;
-    priceOutdoor: number;
+    priceHideout: number;
   }[]; 
   image?: {
     asset: {

@@ -53,7 +53,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           <ul className={`ulcontainer ultags`}>
             {items.map((item, index) => (
               <div key={item.id}>
-                <li className="flex justify-between py-2 px-2 menufont border-l border-l-[#343434]">
+                <li className="flex justify-between pb-6 px-2 menufont border-l border-l-[#343434]">
                   <div className="md:flex items-center flex-col md:flex-row flex-1 pl-4">
                     <p className="text-[16px] normal-case md:text-[18px] menufont tracking-wide gap-2">
                       {item.name}
@@ -80,9 +80,9 @@ const Dropdown: React.FC<DropdownProps> = ({
           </ul>
           {image && (
             <Image
-              className="w-full h-[300px] object-cover"
+              className="w-full mt-10 object-cover"
               src={image}
-              width={3000}
+              width={9000}
               height={100}
               alt={`${title} Image`}
               priority
