@@ -76,7 +76,7 @@ a:hover {
 .Hideout{
   min-width: 320px;
   min-height: 95vh;
-  background-image: url("/Outdoor.jpg");
+  background-image: url("/hideoutNewBackground.jpeg");
   /* background-image: url("../brown-wooden-textured-flooring-background (3).png"); */
   background-repeat: no-repeat;
   background-size: cover;
