@@ -58,6 +58,7 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
               bracket: drink.inBracket,
             }))
           }
+          image={category.image?.asset?.url} 
           openDropdown={openDropdown}
           setOpenDropdown={setOpenDropdown}
           index={index}
