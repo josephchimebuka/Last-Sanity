@@ -73,6 +73,26 @@ a:hover {
   flex-direction: column;
 }
 
+
+.embla {
+  overflow: hidden;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
 .Hideout{
   min-width: 320px;
   min-height: 95vh;

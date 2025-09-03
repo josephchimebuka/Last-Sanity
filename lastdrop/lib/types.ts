@@ -3,17 +3,17 @@ export interface Category {
   name: string;
   notification?: string;
   foods: {
-    _id: string; // Unique identifier for each food item
+    _id: string;
     name: string;
     inBracket: string;
-    priceOutdoor: number; 
+    priceOutdoor: number;
   }[];
-  image?: {
+  images?: {
     asset: {
       _id: string;
       url: string;
     };
-  };
+  }[];
 }
 
 // Interface for the second category type

@@ -35,21 +35,21 @@ async function getHideoutFoodData() {
 // Fetch Hideout Drinks Data
 async function getHideoutDrinksData() {
   const drinksQuery = `*[_type == "category4"] | order(_createdAt asc) {
+  name,
+  notification,
+  foods[]-> {
     name,
-    notification,
-    foods[]-> {
-     _id,
-      name,
-      inBracket,
-      priceHideout
-    },
-    image {
-      asset-> {
-        _id,
-        url
-      }
+    inBracket,
+    priceOutdoor
+  },
+  images[] {
+    asset-> {
+      _id,
+      url
     }
-  }`;
+  }
+}
+`;
 
   const drinkData = await client.fetch(drinksQuery);
   return drinkData;

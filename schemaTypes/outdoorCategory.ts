@@ -20,12 +20,30 @@ export default {
       of: [{ type: 'foodReference' }],
     },
     {
-      name: 'image',
-      title: 'Category Image',
-      type: 'image',
-      options: {
-        hotspot: true, 
-      },
+      name: 'images',
+      title: 'Category Images',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: 'caption',
+              title: 'Caption',
+              type: 'string',
+            },
+            {
+              name: 'alt',
+              title: 'Alt text',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+      validation: (Rule: any) => Rule.min(1).error('Add at least one image for the carousel'),
     },
   ],
 };
