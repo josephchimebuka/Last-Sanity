@@ -63,7 +63,7 @@ const Landing: React.FC<LandingProps> = ({categories, category2}) => {
             }))
           }
           images={
-            (Array.isArray(category.image) ? category.image : []).map(img => ({
+            (Array.isArray(category.images) ? category.images : []).map(img => ({
               url: img.asset?.url || '',
             }))
           }

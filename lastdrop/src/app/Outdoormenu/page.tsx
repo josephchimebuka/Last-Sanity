@@ -41,7 +41,7 @@ async function getOutdoorDrinksData() {
       inBracket,
       priceOutdoor
     },
-    image {
+    images[] {
       asset-> {
         _id,
         url

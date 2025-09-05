@@ -20,7 +20,7 @@ async function getHideoutFoodData() {
       inBracket,
       priceHideout
     },
-    image {
+    images[] {
       asset-> {
         _id,
         url

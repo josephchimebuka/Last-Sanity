@@ -27,7 +27,7 @@ export interface Category2 {
     inBracket: string;
     priceOutdoor: number;
   }[]; 
-  image?: {
+  images?: {
     asset: {
       _id: string;
       url: string;
@@ -45,7 +45,7 @@ export interface Category3 {
     inBracket: string;
     priceHideout: number; 
   }[];
-  image?: {
+  images?: {
     asset: {
       _id: string;
       url: string;
@@ -64,7 +64,7 @@ export interface Category4 {
     inBracket: string;
     priceHideout: number;
   }[]; 
-  image?: {
+  images?: {
     asset: {
       _id: string;
       url: string;
