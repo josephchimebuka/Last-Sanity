@@ -99,7 +99,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                         {images.map((img, idx) => (
                           <div className="embla__slide" key={idx}>
                             <Image
-                              className="w-full h-[300px] md:h-[350px] object-cover rounded-sm"
+                              className="w-full h-[150px] md:h-[350px] object-cover rounded-sm"
                               src={img.url}
                               width={1000}
                               height={600}
