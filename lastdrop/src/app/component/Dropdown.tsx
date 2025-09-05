@@ -2,11 +2,11 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { ChevronDownIcon } from 'lucide-react'
+import {ChevronDownIcon} from 'lucide-react'
 import useEmblaCarousel from 'embla-carousel-react'
 
-import { PrevButton, NextButton, usePrevNextButtons } from './ui/EmblaCarouselArrowButtons'
-import { DotButton, useDotButton } from './ui/EmblaCarouselDotButton'
+import {PrevButton, NextButton, usePrevNextButtons} from './ui/EmblaCarouselArrowButtons'
+import {DotButton, useDotButton} from './ui/EmblaCarouselDotButton'
 
 interface DropdownProps {
   title: string
@@ -18,7 +18,7 @@ interface DropdownProps {
     bracket?: string
     notification?: string
   }[]
-  images?: { url: string }[]
+  images?: {url: string}[]
   index: number
   openDropdown: number
   setOpenDropdown: React.Dispatch<React.SetStateAction<number>>
@@ -38,9 +38,9 @@ const Dropdown: React.FC<DropdownProps> = ({
     setOpenDropdown(isOpen ? -1 : index)
   }
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
-  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi)
-  const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
+  const [emblaRef, emblaApi] = useEmblaCarousel({loop: true})
+  const {selectedIndex, scrollSnaps, onDotButtonClick} = useDotButton(emblaApi)
+  const {prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick} =
     usePrevNextButtons(emblaApi)
 
   return (
@@ -65,9 +65,11 @@ const Dropdown: React.FC<DropdownProps> = ({
                 <div key={item.id}>
                   <li className="flex justify-between pb-6 px-2 menufont border-l border-l-[#343434]">
                     <div className="md:flex items-center flex-col md:flex-row flex-1 pl-4">
-                      <p className="text-[16px] md:text-[18px] tracking-wide">{item.name}</p>
+                      <p className="text-[16px] md:text-[18px] font-display tracking-wide">
+                        {item.name}
+                      </p>
                       {item.bracket && (
-                        <p className="text-[12px] md:text-[14px] md:ml-2 mt-2 md:mt-0 text-[#FE9346] tracking-wider">
+                        <p className="text-[12px] md:text-[14px] md:ml-2 mt-2 md:mt-0 text-[#FE9346] tracking-wider font-display">
                           • {item.bracket}
                         </p>
                       )}
@@ -97,7 +99,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                         {images.map((img, idx) => (
                           <div className="embla__slide" key={idx}>
                             <Image
-                              className="w-full h-[300px] md:h-[450px] object-cover rounded-sm"
+                              className="w-full h-[300px] md:h-[350px] object-cover rounded-sm"
                               src={img.url}
                               width={1000}
                               height={600}
@@ -115,7 +117,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                         <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
                         <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
                       </div>
-                      <div className="embla__dots flex justify-center">
+                      <div className="embla__dots flex justify-center gap-1">
                         {scrollSnaps.map((_, idx) => (
                           <DotButton
                             key={idx}
